@@ -1,0 +1,15 @@
+overwrite: true
+schema:
+  - https://api-development.returnon.college/graphql:
+      headers:
+        Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkZpZ3ptSElfQjcwNHRUaTRnaTF5eCJ9.eyJodHRwczovL3JldHVybm9uLmNvbGxlZ2Uvcm9sZXMiOlsidXNlciJdLCJpc3MiOiJodHRwczovL3JvYy1tb2RlbGluZy51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTgwMjI4ODQ2OTc3Mjc0MTg0ODUiLCJhdWQiOlsiaHR0cHM6Ly9hcGktbW9kZWxpbmcucmV0dXJub24uY29sbGVnZSIsImh0dHBzOi8vcm9jLW1vZGVsaW5nLnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MTAxMjEwNDEsImV4cCI6MTYxMDIwNzQ0MSwiYXpwIjoiTmZRUzVHYmgxMEtwbWdLQXlxQmxuVDUwNW54d2JhV2kiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOltdfQ.rgm-1qkyPNpZXgSM09lIkt865XxlxKM9aPcwCY9zMeL5ufFHG4xJHyLtEUAOJ2z3zlMffKqNMcOzV3JM4ADJtf8AUzurI9nSR3recdVfF2wlNTGr4ZvpvPhd41fqGaDAUmRDvZtBWFWlH36u1YrmE6zwwBS2g6QZKBhQ-YXHji-KWZBWanfxhFKgKS4BuKXJIhek9-pRKMlfyU_UiKSdzm6iyiJz_MFKZfvI4oKLJx47ohmQWZ5vUoaCdsZppJHyBaqEIowT5aUGusojS1zvOFU2CKHN6EPZTVl46cFknr6hUugBxXS_IsS8t3eiHXtPjH17DCDrwnHBkB13KxwYDQ
+documents: './apps/roc-modeling/src/app/core/graphql/**/*.graphql'
+generates:
+  ./apps/roc-modeling/src/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-apollo-angular'
+  ./apps/roc-modeling/graphql.schema.json:
+    plugins:
+      - 'introspection'

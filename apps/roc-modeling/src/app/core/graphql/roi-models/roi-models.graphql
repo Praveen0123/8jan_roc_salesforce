@@ -1,0 +1,25 @@
+mutation saveRoiAggregate($roiAggregateInput: RoiAggregateInput!)
+{
+  saveRoiAggregate(roiAggregateInput: $roiAggregateInput)
+  {
+    ...roiAggregateFragment
+  }
+}
+
+
+query getRoiAggregate($tenantId:ID!, $userId:ID!)
+{
+  getRoiAggregate(tenantId: $tenantId, userId: $userId)
+  {
+    ...roiAggregateFragment
+  }
+}
+
+
+fragment roiAggregateFragment on SavedRoiAggregate
+{
+    tenantId
+    userId
+    roiAggregateId
+    roiAggregate
+}

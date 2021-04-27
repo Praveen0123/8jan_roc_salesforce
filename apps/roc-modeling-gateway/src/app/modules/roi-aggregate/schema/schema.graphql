@@ -1,0 +1,38 @@
+scalar GraphQLJSON
+
+type SavedRoiAggregate @key(fields: "roiAggregateId")
+{
+  tenantId: ID!
+  userId: ID!
+  roiAggregateId: ID
+  roiAggregate: GraphQLJSON
+}
+
+extend type Query
+{
+  getRoiAggregate(tenantId: ID!, userId: ID!): SavedRoiAggregate
+}
+
+input RoiAggregateInput
+{
+  tenantId: ID!
+  userId: ID!
+  roiAggregateId: ID!
+  roiAggregate: GraphQLJSON!
+}
+
+input ShareInput
+{
+  tenantId: ID!
+  sharedFromUserId: ID!
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
+  userType: UserType!
+}
+
+extend type Mutation
+{
+  saveRoiAggregate(roiAggregateInput: RoiAggregateInput): SavedRoiAggregate
+  share(shareInput: ShareInput): SavedRoiAggregate
+}
